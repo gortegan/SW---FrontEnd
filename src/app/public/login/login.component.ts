@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
       pass: new FormControl(null, Validators.required),
       recuerdame: new FormControl( false )
     });
-    if (localStorage.getItem('username')) {
+    if (localStorage.getItem('email')) {
       this.formulario.setValue({
-        usuario: localStorage.getItem('username'),
+        email: localStorage.getItem('email'),
         pass: '',
         recuerdame: true
       });
@@ -54,12 +54,12 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.formulario.value.recuerdame) {
-      localStorage.setItem('username', this.formulario.value.usuario);
+      localStorage.setItem('email', this.formulario.value.email);
     } else {
-      if (localStorage.getItem('username')) {
-        localStorage.removeItem('username');
+      if (localStorage.getItem('email')) {
+        localStorage.removeItem('email');
       }
     }
-    this._authService.login(this.formulario.value.usuario, this.formulario.value.pass);
+    this._authService.login(this.formulario.value.email, this.formulario.value.pass);
 }
 }

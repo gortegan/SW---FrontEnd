@@ -17,7 +17,7 @@ export class UserService {
     const url = URL_SERVICE + '/registrar';
     console.log('Enviando usuario... a ' + url);
     return this.http.post(url, user).map((resp: User) => {
-      if (user.active === 0) {
+      if (resp.active === 0) {
         swal('Ups!', 'El usuario introducido no es correcto. Vuelva a intentarlo', 'error');
       } else {
         swal('¡Confirmado!', 'Usuario creado correctamente', 'success');

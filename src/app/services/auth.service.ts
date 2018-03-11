@@ -19,9 +19,9 @@ export class Auth0Service {
       private authHttp: AuthHttp,
       private router: Router
     ) { }
-    login(username: string, password: string) {
+    login(email: string, password: string) {
 
-      return this.http.post('http://localhost:8080/login', {username: username, password: password})
+      return this.http.post('http://localhost:8080/login', {email: email, password: password})
         .subscribe((response: Response) => {
           this.token = response.headers.get('Authorization');
           if (this.token) {
