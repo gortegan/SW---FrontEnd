@@ -1,11 +1,11 @@
 import { HttpModule } from '@angular/http';
-import { UsuarioService } from './usuario.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Auth0Service } from './auth.service';
 import { AuthHttp, AuthConfig, AUTH_PROVIDERS, provideAuth } from 'angular2-jwt';
 import { LoginGuardGuard } from './guards/login-guard.guard';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { UserService } from './user.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -25,7 +25,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
         noJwtError: true
     }),
     Auth0Service,
-    UsuarioService,
+    UserService,
     LoginGuardGuard
   ]
 })

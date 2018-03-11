@@ -1,3 +1,4 @@
+import { User } from './../models/user.model';
 import { Response, RequestOptions } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 import { Http } from '@angular/http';
@@ -5,17 +6,19 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
+
+import { URL_SERVICE } from '../config/const';
 declare var require: any;
 @Injectable()
 export class Auth0Service {
     token: any;
     swal = require('sweetalert2');
+    usuario: User;
     constructor(
       private http: Http,
       private authHttp: AuthHttp,
       private router: Router
     ) { }
-
     login(username: string, password: string) {
 
       return this.http.post('http://localhost:8080/login', {username: username, password: password})
@@ -41,9 +44,17 @@ export class Auth0Service {
       return this.getToken().length > 10;
     }
 
-    logout(): void {
-      console.log('eliminando token..');
-      localStorage.removeItem('user_token');
+    loginGoogle(token) {
+    const url = URL_SERVICE + '/login/google';
+    return this.http.post(url, {token: token})
+          .map( (resp: any) => {
+            localStorage.setItem('user_token', token);
+            localStorage.removeItem('user');
+            return true;
+          });
+    }
 
+    logout(): void {
+      localStorage.removeItem('user_token');
     }
 }
