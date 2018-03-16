@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth0Service } from '../../services/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 declare function initPlugins();
 declare const gapi: any;
 @Component({
@@ -11,11 +12,14 @@ declare const gapi: any;
 export class LoginComponent implements OnInit {
   formulario: FormGroup;
   auth2: any;
-  constructor(public _authService: Auth0Service) { }
+  constructor(public _authService: Auth0Service, public router: Router) { }
 
   ngOnInit() {
     initPlugins();
     this.googleInit();
+    if(this._authService.isAuthenticated) {
+      this.router.navigateByUrl('/user/profile');
+    }
     this.formulario = new FormGroup({
       email: new FormControl(null, Validators.required),
       pass: new FormControl(null, Validators.required),

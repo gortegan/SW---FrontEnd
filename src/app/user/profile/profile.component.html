@@ -1,3 +1,121 @@
-<p>
-  profile works!
-</p>
+<!-- ============================================================== -->
+<!-- Stats box -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex no-block">
+                    <div class="m-r-20 align-self-center"><span class="lstick m-r-20"></span><img src="../assets/images/icon/income.png" alt="Income" /></div>
+                    <div class="align-self-center">
+                        <h6 class="text-muted m-t-10 m-b-0">Total necesario</h6>
+                        <h2 class="m-t-0">953,000</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex no-block">
+                    <div class="m-r-20 align-self-center"><span class="lstick m-r-20"></span><img src="../assets/images/icon/expense.png" alt="Income" /></div>
+                    <div class="align-self-center">
+                        <h6 class="text-muted m-t-10 m-b-0">Total inversión</h6>
+                        <h2 class="m-t-0">236,000</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex no-block">
+                    <div class="m-r-20 align-self-center"><span class="lstick m-r-20"></span><img src="../assets/images/icon/staff.png" alt="Income" /></div>
+                    <div class="align-self-center">
+                        <h6 class="text-muted m-t-10 m-b-0">Total de inversores</h6>
+                        <h2 class="m-t-0">89</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- Evolución de inversiones -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-lg-6 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title m-b-5"><span class="lstick"></span>Evolución de la inversión</h3>
+                <app-bar [barChartLabels]="barChartLabels" [barChartData]="barChartData"></app-bar>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title m-b-5"><span class="lstick"></span>Evolución de los proyectos</h3>
+                <app-line [lineChartData]="lineChartData" [lineChartLabels]="lineChartLabels"></app-line>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title m-b-5"><span class="lstick"></span>Tu perfil</h3>
+                <small>Desarrollador web</small>
+                <h4>Gerard Ortega Añel</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad aliquam error, earum libero ducimus quo doloribus consectetur, repellendus voluptatem at soluta veniam dolorum eos illum excepturi corporis exercitationem laudantium.</p>
+                <button class="btn btn-primary btn-block" routerLink="/user/homepage">Accede a tu perfil</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <h3 class="card-title m-b-5"><span class="lstick"></span>Procedencia de los inversores</h3>
+                        <app-doughnut [doughnutChartLabels]="doughnutChartLabels" [doughnutChartData]="doughnutChartData"></app-doughnut>
+                    </div>
+                    <div class="col-lg-6 col-md-12 tablaScroll">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Inversión</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mark</td>
+                                    <td>Otto Knows</td>
+                                    <td>1.000.000</td>
+                                    <td><button class="btn btn-primary btn-sm">Perfil</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title m-b-5"><span class="lstick"></span>Previsión de futuro</h3>
+                <app-line [lineChartData]="prevLineChartData" [lineChartLabels]="prevLineChartLabels"></app-line>
+            </div>
+        </div>
+    </div>
+</div>

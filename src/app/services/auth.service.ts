@@ -50,6 +50,7 @@ export class Auth0Service {
           .map( (resp: any) => {
             localStorage.setItem('user_token', token);
             localStorage.removeItem('user');
+            this.router.navigateByUrl('/user/profile');
             return true;
           });
     }

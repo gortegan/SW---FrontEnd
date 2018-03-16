@@ -11,4 +11,4 @@ export class User {
     }
 
 // tslint:disable-next-line:eofline
-};
+}
